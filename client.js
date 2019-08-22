@@ -1,5 +1,5 @@
-var argv = require('yargs').argv
-var io = require('socket.io-client')
+const argv = require('yargs').argv
+const io = require('socket.io-client')
 
 let host = argv.host || 'localhost'
 let port = argv.port || 80
@@ -13,7 +13,7 @@ function sendEcho(msg){
   socket.emit('echo', msg)
 }
 
-var socket = io('http://localhost',
+const socket = io('http://localhost',
     { host, port, upgrade, transports });
 
 socket.on('ping', function (data) {
